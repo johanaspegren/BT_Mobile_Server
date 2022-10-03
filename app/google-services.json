@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "660177405798",
+    "firebase_url": "https://homecareglasses-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "homecareglasses",
+    "storage_bucket": "homecareglasses.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660177405798:android:c97240a0e7856ebc24eaa7",
+        "android_client_info": {
+          "package_name": "com.aspegrenide.bt_mobile_server"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660177405798-2jo60t3hkj6deniv2k9ss7n81mcb48fv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkQadykaKmXBTKpX7OoZzV4nFshaUCbq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660177405798-2jo60t3hkj6deniv2k9ss7n81mcb48fv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

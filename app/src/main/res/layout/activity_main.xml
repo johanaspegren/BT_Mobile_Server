@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgGlassState"
+        android:layout_width="83dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/imgBtStatus"
+        app:layout_constraintTop_toBottomOf="@+id/imgServerState"
+        app:srcCompat="@drawable/glass_icon" />
+
+    <TextView
+        android:id="@+id/tvGlassStatusCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Glass state"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/tvBtStatusCaption"
+        app:layout_constraintTop_toTopOf="@+id/imgGlassState" />
+
+    <ImageView
+        android:id="@+id/imgBtStatus"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btoff" />
+
+    <TextView
+        android:id="@+id/tvGlassStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvGlassStatusCaption"
+        app:layout_constraintTop_toBottomOf="@+id/tvGlassStatusCaption" />
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="48dp"
+        android:text="Restart server"
+        android:onClick="restartServer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBtStatusCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Bluetooth state"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/imgBtStatus"
+        app:layout_constraintTop_toTopOf="@+id/imgBtStatus" />
+
+    <TextView
+        android:id="@+id/tvBtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvBtStatusCaption"
+        app:layout_constraintTop_toBottomOf="@+id/tvBtStatusCaption" />
+
+    <TextView
+        android:id="@+id/tvGlassSerial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/tvGlassStatus"
+        app:layout_constraintTop_toTopOf="@+id/tvGlassStatus" />
+
+    <ImageView
+        android:id="@+id/imgServerState"
+        android:layout_width="64dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="@+id/imgBtStatus"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtStatus"
+        app:srcCompat="@drawable/shh" />
+
+    <TextView
+        android:id="@+id/tvServerStateCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server state"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/tvBtStatusCaption"
+        app:layout_constraintTop_toTopOf="@+id/imgServerState" />
+
+    <TextView
+        android:id="@+id/tvServerState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvServerStateCaption"
+        app:layout_constraintTop_toBottomOf="@+id/tvServerStateCaption" />
+
+    <ImageView
+        android:id="@+id/imgVideo"
+        android:layout_width="59dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:onClick="imgVideoOnClick"
+        app:layout_constraintEnd_toEndOf="@+id/imgGlassState"
+        app:layout_constraintStart_toStartOf="@+id/imgGlassState"
+        app:layout_constraintTop_toBottomOf="@+id/imgGlassState"
+        app:srcCompat="@drawable/cam" />
+
+    <TextView
+        android:id="@+id/tvVideoCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video channel located"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/tvBtStatusCaption"
+        app:layout_constraintTop_toTopOf="@+id/imgVideo" />
+
+    <TextView
+        android:id="@+id/tvVideoTokenFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvVideoCaption"
+        app:layout_constraintTop_toBottomOf="@+id/tvVideoCaption" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
