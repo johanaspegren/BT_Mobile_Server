@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
     public void imgVideoOnClick(View view) {
         String prefix = "TOKEN";
         String payload = vcm.getCurrentToken();
-
+        Log.d(TAG, "imgVideoOnClick token" + payload);
         sendMessage(prefix + payload);
     }
 
