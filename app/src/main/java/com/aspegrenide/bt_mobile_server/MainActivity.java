@@ -147,30 +147,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setServerState(int state, String deviceName) {
-        switch (state) {
-            case DEACTIVE:
-                tvServerState.setText("Not active");
-                imgServerState.setImageResource(R.drawable.shh);
-                break;
-            case ACTIVE:
-                tvServerState.setText("Active");
-                imgServerState.setImageResource(R.drawable.ok);
-                break;
-            case CONNECTED:
-                imgServerState.setImageResource(R.drawable.handshake);
-                tvServerState.setText("Connected to " + deviceName);
-                break;
-        }
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                switch (state) {
+                    case DEACTIVE:
+                        tvServerState.setText("Not active");
+                        imgServerState.setImageResource(R.drawable.shh);
+                        break;
+                    case ACTIVE:
+                        tvServerState.setText("Active");
+                        imgServerState.setImageResource(R.drawable.ok);
+                        break;
+                    case CONNECTED:
+                        imgServerState.setImageResource(R.drawable.handshake);
+                        tvServerState.setText("Connected to " + deviceName);
+                        break;
+                }
+            }
+        });
+
     }
 
     private void setGlassState(GoogleGlasses gg) {
-        if (gg.isConnected()) {
-            tvGlassState.setText("Serial: ");
-            tvGlassSerial.setText(gg.getUid());
-        } else {
-            tvGlassState.setText("Serial: ");
-            tvGlassSerial.setText("na");
-        }
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if (gg.isConnected()) {
+                    tvGlassState.setText("Serial: ");
+                    tvGlassSerial.setText(gg.getUid());
+                } else {
+                    tvGlassState.setText("Waiting for Glasses to connect ...");
+                    tvGlassSerial.setText("");
+                }
+            }
+        });
     }
 
     private void requestPermission(String permissionName, int permissionRequestCode) {
@@ -206,14 +221,24 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
+    // if connection is lost
+    // 1) click retart server in this app
+    // 2) restart the glasses
     public void restartServer(View view) {
+        Log.d(TAG,"restart server button click");
+        restartServer();
+    }
+
+    public void restartServer() {
+        Log.d(TAG,"restart server called");
         setServerState(DEACTIVE, null);
         setGlassState(googleGlasses);
         accept.cancel();
         startServer();
     }
 
-    public void startServer() {
+        public void startServer() {
         accept = new AcceptThread();
         accept.start();
     }
@@ -351,6 +376,13 @@ public class MainActivity extends AppCompatActivity {
                     });
                 } catch (IOException e) {
                     Log.e(TAG, "write: Error reading Input Stream. " + e.getMessage());
+                    // if we end up here the connection is lost
+                    // update icons
+                    // update the icon for glass
+                    googleGlasses.setConnected(false);
+                    setGlassState(googleGlasses);
+                    // try to restart server
+                    restartServer();
                     break;
                 }
             }
